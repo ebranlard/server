@@ -1,0 +1,18 @@
+[Unit]
+Description=Local Server
+After=network.target
+# StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+#Restart=always
+RestartSec=1
+User=manu
+ExecStart=/home/manu/server/daemon/server.sh start
+ExecStop=/home/manu/server/daemon/server.sh stop
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=server
+
+[Install]
+WantedBy=multi-user.target
