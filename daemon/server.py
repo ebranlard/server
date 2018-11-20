@@ -1,9 +1,18 @@
+#!/usr/bin/env python
+
 import socket
 import sys
 from datetime import datetime
 import os
+import os.path
+import time
 
-PID = os.getpid()
+
+#from alarm import Alarm, FileTestSound, FileAlarmSet, FileAlarmInfo, logit
+#alarm=Alarm();
+
+
+#PID = os.getpid()
 UDP_IP = "127.0.0.1"
 UDP_PORT = 5005
 
@@ -27,7 +36,28 @@ try:
 
     while True:
         data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+        data = data.strip()
         log('Received: '+data.strip())
+        # Music Stop
+        if data == 'MusicStop':
+            log('>Server: Music Stop')
+            os.system('killall vlc')
+        # Music Start
+        if data == 'MusicStart':
+            log('>Server: Signal Music Start')
+            os.system('killall vlc') # to avoid cacophony
+            os.system('/home/manu/server/daemon/run_music.sh')
+        # Volume Up
+        if data == 'VolUp':
+            log('>Server: Signal Music Up')
+            os.system('/www/site/run_vol_up.sh')
+        # Volume Down
+        if data == 'VolDown':
+            log('>Server: Signal Music Down')
+            os.system('/www/site/run_vol_dwn.sh')
+        # Alarm test
+        #if data == 'AlarmTest':
+        #    alarm.test_sound_level();
     sys.exit(0)
 
 except Exception as e:
