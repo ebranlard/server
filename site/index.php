@@ -15,12 +15,8 @@ $time=9999;
 $volume=0.9999;
 $FileTestSound  = '_listen/alarm_test_set' ;
 $FileAlarmSet   = '_listen/alarm_info_set' ;
-$FileMusicStop  = '_listen/music_stop' ;
-$FileMusicStart = '_listen/music_start';
-$FileMusicDown  = '_listen/music_down';
-$FileMusicUp    = '_listen/music_up';
-$FileLog        = '_data/log.txt';
 $FileAlarmInfo  = '_data/alarm_info.txt' ;
+$FileLog        = '_data/log.txt';
 $serverProcessName = 'server.sh';
 
 
@@ -81,41 +77,26 @@ function processExists($processName) {
 // --------------------------------------------------------------------------------
 $IP='127.0.0.1';
 $PORT=5005;
-if (!empty($_POST["TestUDP"]))  {
-        $sent="TestUDP";
-        $msg = "Png !";
-        $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-        socket_sendto($sock, $msg, strlen($msg), 0, $IP,$PORT);
-        socket_close($sock);
-}
 
 if (!empty($_POST["MusicStop"]))  {
-        $sent="Music stop";
-        #file_put_contents($FileMusicStop,"");
         $msg = "MusicStop";
         $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         socket_sendto($sock, $msg, strlen($msg), 0, $IP,$PORT);
         socket_close($sock);
 }
 if (!empty($_POST["MusicStart"]))  {
-        $sent="Music start";
-        #file_put_contents($FileMusicStart,"");
         $msg = "MusicStart";
         $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         socket_sendto($sock, $msg, strlen($msg), 0, $IP,$PORT);
         socket_close($sock);
 }
 if (!empty($_POST["MusicUp"]))  {
-        $sent="Volume Up";
-        #file_put_contents($FileMusicUp,"");
         $msg = "VolUp";
         $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         socket_sendto($sock, $msg, strlen($msg), 0, $IP,$PORT);
         socket_close($sock);
 }
 if (!empty($_POST["MusicDown"]))  {
-        $sent="Volume Down";
-        #file_put_contents($FileMusicDown,"");
         $msg = "VolDown";
         $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         socket_sendto($sock, $msg, strlen($msg), 0, $IP,$PORT);
@@ -132,14 +113,15 @@ if (!empty($_POST["test_sound"]) or !empty($_POST["change_alarm"]))  {
 
     if (!empty($_POST["test_sound"])) {
         $sent="test_sound command";
-        file_put_contents($FileTestSound,"");
+        #file_put_contents($FileTestSound,"");
+        echo "here";
+        $fid = fopen("alarm_info_set", "w") or die("Unable to open file alarm set!");
+        fwrite($fid, "1");
+        fclose($fid);
     }
     if (!empty($_POST["change_alarm"]))  {
         $sent="change_alarm command";
         file_put_contents($FileAlarmSet, "");
-//         $fid = fopen("alarm_info_set", "w") or die("Unable to open file info set!");
-//         fwrite($fid, "1");
-//         fclose($fid);
     }
 }
 if (file_exists($FileAlarmInfo)) {
@@ -195,9 +177,7 @@ function changeText(){
 </script>
 <div id='LogPane'><?php echo $log;?></div>
 
-<!-- ------------------- ALARM --------------------- -->
-<br>
-<form action="index.php" method="post">
+<!-- ------------------- ALARM --------------------- 
 <label>Time  : </label>
  <input type="time" name="Time" value="<?=$time;?>">
 <br>
@@ -205,6 +185,9 @@ function changeText(){
 <input type="range" min="1" max="99" step="5"/ name="Volume" value=<?=$volume;?>>
 <br>
 <input type="submit" name="change_alarm" value='Set Alarm'/>
+-->
+<br>
+<form action="index.php" method="post">
 <input type='submit' name="test_sound" value='Test Now'/>
 </form>
 </body>

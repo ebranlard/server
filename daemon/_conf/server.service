@@ -1,11 +1,11 @@
 [Unit]
 Description=Local Server
 After=network.target
-# StartLimitIntervalSec=0
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-#Restart=always
+Restart=always
 RestartSec=1
 User=manu
 ExecStart=/home/manu/server/daemon/server.sh start

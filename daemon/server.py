@@ -46,15 +46,15 @@ try:
         if data == 'MusicStart':
             log('>Server: Signal Music Start')
             os.system('killall vlc') # to avoid cacophony
-            os.system('/home/manu/server/daemon/run_music.sh')
+            os.system('/home/manu/server/_tools/run_music.sh')
         # Volume Up
         if data == 'VolUp':
             log('>Server: Signal Music Up')
-            os.system('/www/site/run_vol_up.sh')
+            os.system('/home/manu/server/_tools/run_vol_up.sh')
         # Volume Down
         if data == 'VolDown':
             log('>Server: Signal Music Down')
-            os.system('/www/site/run_vol_dwn.sh')
+            os.system('/home/manu/server/_tools/run_vol_dwn.sh')
         # Alarm test
         #if data == 'AlarmTest':
         #    alarm.test_sound_level();
