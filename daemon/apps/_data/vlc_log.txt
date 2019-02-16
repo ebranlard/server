@@ -1,0 +1,43 @@
+--------------------------------------------------------------------
+----------------------- BASH PROFILE -------------------------------
+--------------------------------------------------------------------
+/home/manu/.profile: line 7: pyenv: command not found
+/home/manu/.profile: line 8: pyenv: command not found
+locale: invalid option -- 'u'
+Try `locale --help' or `locale --usage' for more information.
+/home/manu/.bash_profile: line 21: [: too many arguments
+[02031690] pulse audio output error: PulseAudio server connection failure: Connection refused
+[01f549a8] core interface error: no suitable interface module
+[01ec70d0] core libvlc error: interface "globalhotkeys,none" initialization failed
+[02046dd0] dbus interface error: Failed to connect to the D-Bus session daemon: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[02046dd0] core interface error: no suitable interface module
+[01ec70d0] core libvlc error: interface "dbus,none" initialization failed
+[02046dd0] dummy interface: using the dummy interface module...
+libdvdnav: Using dvdnav version 5.0.1
+libdvdread: Encrypted DVD support unavailable.
+************************************************
+**                                            **
+**  No css library available. See             **
+**  /usr/share/doc/libdvdread4/README.css     **
+**  for more information.                     **
+**                                            **
+************************************************
+libdvdread: Couldn't find device name.
+libdvdread:DVDOpenFilePath:findDVDFile /VIDEO_TS/VIDEO_TS.IFO failed
+libdvdread:DVDOpenFilePath:findDVDFile /VIDEO_TS/VIDEO_TS.BUP failed
+libdvdread: Can't open file VIDEO_TS.IFO.
+libdvdnav: vm: failed to read VIDEO_TS.IFO
+[0202a998] core playlist: stopping playback
+[mp3 @ 0x74532ca0] Header missing
+[mp3 @ 0x74532ca0] Header missing
+[mp3 @ 0x74532ca0] Header missing
+[mp3 @ 0x74553fc0] Header missing
+[mp3 @ 0x74589700] Header missing
+[mp3 @ 0x745bc920] Header missing
+[mp3 @ 0x745bc920] Header missing
+[mp3 @ 0x745bc920] Header missing
+[mp3 @ 0x745bc920] Header missing
+[mp3 @ 0x7458c720] Header missing
+[mp3 @ 0x745b4c80] Header missing
+[mp3 @ 0x745b4c80] Header missing
+[mp3 @ 0x745b4c80] Header missing

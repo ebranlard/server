@@ -1,0 +1,8 @@
+vlc: no process found
+Running music (log: vlc_log.txt)
+vlc: no process found
+vlc: no process found
+Running music (log: vlc_log.txt)
+Vol down: 80% -> 78%
+Vol up : 78% -> 80%
+Vol up : 80% -> 82%
