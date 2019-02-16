@@ -1,0 +1,3 @@
+[alarm_info]
+Time = "20:06"
+Volume = 0.41
